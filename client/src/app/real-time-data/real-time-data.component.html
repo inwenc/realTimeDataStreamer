@@ -1,1 +1,12 @@
-<p>real-time-data works!</p>
+<!-- <h2>TweetFeed</h2> -->
+<!-- <div>
+  <ul>
+    <li *ngFor="let tweet of storage | async">{{tweet.text}}</li>
+</ul>
+</div> -->
+<h2>TweetFeed</h2>
+<div *ngIf="storage">
+  <ul  *ngFor="let tweet of storage">
+    <li>{{tweet.data.text}}</li>
+</ul>
+</div>
