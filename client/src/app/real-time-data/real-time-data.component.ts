@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WebSocketService } from '../web-socket.service';
 
 @Component({
   selector: 'app-real-time-data',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RealTimeDataComponent implements OnInit {
 
-  constructor() { }
+  title = 'client';
+  constructor(private webSocketService: WebSocketService) {
 
-  ngOnInit(): void {
+  }
+  ngOnInit() {
+    this.webSocketService.listen('twitter').subscribe((data) => {
+      console.log(data);
+    })
   }
 
 }
