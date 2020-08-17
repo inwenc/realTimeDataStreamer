@@ -1,0 +1,24 @@
+{
+  "name": "realtimedatastreamer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inwenc/realTimeDataStreamer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inwenc/realTimeDataStreamer/issues"
+  },
+  "homepage": "https://github.com/inwenc/realTimeDataStreamer#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "needle": "^2.5.0",
+    "socket.io": "^2.3.0"
+  }
+}
