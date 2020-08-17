@@ -6,7 +6,7 @@
 </div> -->
 <h2>TweetFeed</h2>
 <div *ngIf="storage">
-  <ul  *ngFor="let tweet of storage">
+  <ul  *ngFor="let tweet of storage | slice:-10:-1">
     <li>{{tweet.data.text}}</li>
 </ul>
 </div>
