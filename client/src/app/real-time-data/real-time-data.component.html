@@ -4,9 +4,12 @@
     <li *ngFor="let tweet of storage | async">{{tweet.text}}</li>
 </ul>
 </div> -->
-<h2>TweetFeed</h2>
-<div *ngIf="storage">
+<div>
+    <span>Total tweets: {{storage.length}}</span>
+<div *ngIf="storage" id="wrapper">
   <ul  *ngFor="let tweet of storage | slice:-10:-1">
-    <li>{{tweet.data.text}}</li>
+    <li id="tweets">{{tweet.data.text}}</li>
 </ul>
+
+</div>
 </div>

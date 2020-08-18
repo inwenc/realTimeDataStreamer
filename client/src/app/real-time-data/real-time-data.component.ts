@@ -19,16 +19,9 @@ export class RealTimeDataComponent implements OnInit {
   }
   ngOnInit() {
     this.webSocketService.listen('twitter').subscribe((data:any) => {
-     // let newData = JSON.parse(data);
-     // console.log('newData', data)
-    //  let newData = { data }
-     //this.tweet = data;
 
-    this.storage.push(data)
-    // if (this.storage.length !== 0) {
-    //   this.storage = this.storage.shift()
-    // }
-    console.log(this.storage)
+      this.storage.push(data);
+      console.log(this.storage);
     })
   }
 

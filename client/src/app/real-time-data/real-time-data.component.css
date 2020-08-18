@@ -1,0 +1,16 @@
+
+
+#wrapper {
+  text-align: left;
+  color: black;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0px;
+  width: 400px;
+  height: 800px;
+  margin: 0 auto;
+  background: rgb(154, 192, 154);
+  padding: 20px;
+}

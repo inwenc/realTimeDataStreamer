@@ -27,7 +27,8 @@ io.on('connect', (socket) => {
       //incoming data is buffer
       const json = JSON.parse(data);
       //res.json(json)
-      socket.emit('twitter', json)
+      //send tweets to client
+      socket.emit('twitter', json);
     } catch (e) {
       // Keep alive signal received. Do nothing.
     }
