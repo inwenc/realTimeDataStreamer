@@ -12,28 +12,30 @@ import { ApiService } from '../api-service.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  private tweets: Observable<Tweet[]>;
+  tweets$: Observable<Tweet[]> | undefined;
   private loading: boolean = false;
   private searchTerms = new Subject<string>();
+  public listOfTweets: Array<Object> = [];
 
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+  console.log('ngOnInit')
 
-
-    this.searchTerms.pipe(
+   this.tweets$ = this.searchTerms.pipe(
       debounceTime(400),
       distinctUntilChanged(),
       tap(_ => (this.loading = true)),
       switchMap((term: string) => this.apiService.searchTweets(term)),
       tap(_ => (this.loading = false)),
-      //subscribe((value: any) => console.log(value))
+      //Subscribe((value: any) => console.log(value))
     )
   //   this.searchTerms.pipe(
   //     debounceTime(300),
   //     switchMap((term: string) => this.apiService.searchTweets(term)),
   //  )
+
   }
 
 
@@ -41,7 +43,8 @@ export class SearchComponent implements OnInit {
    this.searchTerms.next(term);
    console.log('termi', term)
    this.loading = true;
-   this.apiService.searchTweets(term)
+   this.apiService.searchTweets(term).subscribe((data)=> this.listOfTweets = data)
+
   }
 
 }

@@ -6,7 +6,7 @@ import { Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class WebSocketService {
-  readonly url: string = 'ws://localhost:3000';
+  readonly url: string = 'ws://localhost:3001';
 
   constructor() {
     this.socket = io(this.url);

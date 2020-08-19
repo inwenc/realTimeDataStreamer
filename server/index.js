@@ -1,8 +1,10 @@
 const express = require('express');
 //const bodyParser = require('body-parser');
 const path = require('path');
+const app = express();
+const http = require('http').Server(app);
 
-const io = require('socket.io')(3000);
+const io = require('socket.io')(3001);
 
 const needle = require('needle');
 const TWITTER_TOKEN = require('./config.js')
@@ -12,6 +14,7 @@ const TWITTER_TOKEN = require('./config.js')
 const streamURL = 'https://api.twitter.com/2/tweets/sample/stream';
 //app.get('/', (req, res) => {
 io.on('connect', (socket) => {
+
   console.log('a user connected')
   const options = {
     timeout: 2000
@@ -41,3 +44,7 @@ io.on('connect', (socket) => {
 
 
 })
+
+
+
+

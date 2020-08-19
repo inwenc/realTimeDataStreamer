@@ -10,7 +10,6 @@ import { retry, catchError, tap } from 'rxjs/operators';
 })
 export class ApiService {
 
- private token: string = `Bearer ${TWITTER_TOKEN}`;
 
   constructor(private http: HttpClient) { }
 
@@ -28,10 +27,15 @@ export class ApiService {
   }
 
   searchTweets(term: string): Observable<Tweet[]> {
-    const headers = new HttpHeaders({Authorization: `Bearer ${TWITTER_TOKEN}`})
+    console.log('insideSearchTweets')
+    //const headers = new HttpHeaders({Authorization: `Bearer ${TWITTER_TOKEN}`})
+    let body = {
+      title: term
+    }
+    // let apiURL = `https://api.twitter.com/1.1/search/tweets.json?q=%23${term}l&result_type=recent`;
+    let apiURL = 'http://localhost:3000/tweets'
 
-    let apiURL = `https://api.twitter.com/1.1/search/tweets.json?q=%23${term}l&result_type=recent`;
 
-    return this.http.get<Tweet[]>(apiURL, {headers: headers}).pipe(catchError(this.handleError))
+    return this.http.post<Tweet[]>(apiURL, body).pipe(tap(_=> console.log('fetch tweets')),catchError(this.handleError))
   }
 }

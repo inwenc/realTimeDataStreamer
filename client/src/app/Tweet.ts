@@ -1,3 +1,5 @@
 export interface Tweet {
-  arr: []
+  time: string,
+  text: string,
+  id: string
 }
