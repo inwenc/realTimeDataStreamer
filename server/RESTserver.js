@@ -5,6 +5,7 @@ const app = express();
 
 const needle = require('needle');
 const TWITTER_TOKEN = require('./config.js')
+const { sanitizeData } = require('./helperFunc.js')
 
 
 app.use(bodyParser.urlencoded({
@@ -12,20 +13,20 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json());
 
-function sanitizedData (data) {
-  var arr = data.statuses;
-  var newArr = [];
-  for (var i = 0; i < arr.length; i++) {
-    var obj = {
-      time: arr[i].created_at,
-      text: arr[i].text,
-      id: arr[i].id
-    }
-    newArr.push(obj);
+// function sanitizedData (data) {
+//   var arr = data.statuses;
+//   var newArr = [];
+//   for (var i = 0; i < arr.length; i++) {
+//     var obj = {
+//       time: arr[i].created_at,
+//       text: arr[i].text,
+//       id: arr[i].id
+//     }
+//     newArr.push(obj);
 
-  }
-  return newArr;
-}
+//   }
+//   return newArr;
+// }
 
 app.post('/tweets', (req, res) => {
 
@@ -47,7 +48,7 @@ app.post('/tweets', (req, res) => {
       //incoming data is buffer
       //const json = JSON.parse(data);
       console.log('data', data)
-      var newData = sanitizedData(data)
+      var newData = sanitizeData(data);
       res.end(JSON.stringify(newData))
 
     } catch (e) {

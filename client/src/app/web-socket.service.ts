@@ -9,12 +9,13 @@ export class WebSocketService {
   readonly url: string = 'ws://localhost:3001';
 
   constructor() {
-    this.socket = io(this.url);
+    this.socket = io(this.url, { withCredentials: true });
   }
   socket: any;
   listen(eventName: string){
     return new Observable((subscriber) => {
       this.socket.on(eventName, (data) => {
+        console.log('data', data)
         subscriber.next(data)
       })
     })
