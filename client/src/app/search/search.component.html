@@ -6,8 +6,8 @@
     </div>
   </form>
   <div *ngIf="listOfTweets">
- <ul *ngFor="let tweet of listOfTweets">
-   <li>{{tweet.id}}: <span>{{tweet.text}}</span> ({{tweet.time}})</li>
+ <ul *ngFor="let tweet of listOfTweets" ng-init="counter = 0">
+   <li (click)="addToFavorite(tweet.time, tweet.id, tweet.text, counter)">{{tweet.id}}: <span>{{tweet.text}}</span> ({{tweet.time}})</li>
 
  </ul>
   </div>

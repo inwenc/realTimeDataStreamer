@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
 
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.state';
+import * as TwitterActions from '../actions/twitter.actions';
+
+
 import { Tweet } from '../Tweet';
 import { ApiService } from '../api-service.service';
 
@@ -17,7 +22,7 @@ export class SearchComponent implements OnInit {
   public listOfTweets: Array<Object> = [];
 
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
   console.log('ngOnInit')
@@ -39,6 +44,11 @@ export class SearchComponent implements OnInit {
    console.log('termi', term)
    this.loading = true;
    this.apiService.searchTweets(term).subscribe((data)=> this.listOfTweets = data);
+
+  }
+
+  addToFavorite(id: string, text: string, time: string, idx: number) {
+    this.store.dispatch(new TwitterActions.AddTweet({time: time, id: id, text: text, idx: idx}))
 
   }
 
