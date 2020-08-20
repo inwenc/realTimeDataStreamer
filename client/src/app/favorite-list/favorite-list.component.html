@@ -1,6 +1,6 @@
 <div *ngIf="favoriteTweets">
   <ul>
-    <li *ngFor="let tweet of favoriteTweets | async">
+    <li (click)="deleteTweet(i)" *ngFor="let tweet of favoriteTweets | async; let i = index">
       {{tweet.id}}: <span>{{tweet.text}}</span> ({{tweet.time}})
     </li>
   </ul>

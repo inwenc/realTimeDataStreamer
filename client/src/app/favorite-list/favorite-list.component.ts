@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Tweet } from '../Tweet';
 import { AppState } from '../app.state';
+import * as TwitterActions from '../actions/twitter.actions';
+
 
 
 @Component({
@@ -19,6 +21,10 @@ export class FavoriteListComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+  deleteTweet (idx: number) {
+    this.store.dispatch(new TwitterActions.RemoveTweet(idx));
+    console.log('index', idx)
   }
 
 }

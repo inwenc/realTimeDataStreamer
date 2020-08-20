@@ -11,13 +11,13 @@ const initialState: Tweet = {
 }
 
 
-export function twitterReducer(state: Tweet[] = [initialState], action: TwitterActions.Actions) {
+export function twitterReducer(state: Tweet[] = [], action: TwitterActions.Actions) {
   switch(action.type) {
     case TwitterActions.ADD_TWEET:
       return [...state, action.payload];
     case TwitterActions.REMOVE_TWEET:
-      state.splice(action.payload, 1)
-      return state;
+      return  state.filter((item, i) => i !== action.payload);
+
       default:
         return state;
   }

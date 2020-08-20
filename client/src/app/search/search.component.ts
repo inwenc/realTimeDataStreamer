@@ -48,7 +48,7 @@ export class SearchComponent implements OnInit {
   }
 
   addToFavorite(id: string, text: string, time: string, idx: number) {
-    this.store.dispatch(new TwitterActions.AddTweet({time: time, id: id, text: text, idx: idx}))
+    this.store.dispatch(new TwitterActions.AddTweet({time: time, id: id, text: text, idx:idx}))
 
   }
 

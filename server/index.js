@@ -26,8 +26,8 @@ io.on('connect', (socket) => {
   }, options)
   stream.on('data', data => {
 
-   if(data.length !== 0) {
-    //console.log('TYPEOF', typeof data)
+   if (Buffer.byteLength(data) > 3) {
+
 
     const json = JSON.parse(data);
      console.log('json', json)
