@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
 
-//import { ReactiveFormsModule, FormControl, FormsModule } from "@angular/forms";
 import { Tweet } from '../Tweet';
 import { ApiService } from '../api-service.service';
 
@@ -29,21 +28,17 @@ export class SearchComponent implements OnInit {
       tap(_ => (this.loading = true)),
       switchMap((term: string) => this.apiService.searchTweets(term)),
       tap(_ => (this.loading = false)),
-      //Subscribe((value: any) => console.log(value))
+
     )
-  //   this.searchTerms.pipe(
-  //     debounceTime(300),
-  //     switchMap((term: string) => this.apiService.searchTweets(term)),
-  //  )
 
   }
 
 
-  search(term: string){
+  search(term: string) {
    this.searchTerms.next(term);
    console.log('termi', term)
    this.loading = true;
-   this.apiService.searchTweets(term).subscribe((data)=> this.listOfTweets = data)
+   this.apiService.searchTweets(term).subscribe((data)=> this.listOfTweets = data);
 
   }
 

@@ -1,0 +1,8 @@
+<div *ngIf="favoriteTweets">
+  <ul>
+    <li *ngFor="let tweet of favoriteTweets | async">
+      {{tweet.id}}: <span>{{tweet.text}}</span> ({{tweet.time}})
+    </li>
+  </ul>
+
+</div>

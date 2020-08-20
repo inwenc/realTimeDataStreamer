@@ -15,3 +15,12 @@
   text-shadow: 0px 1px 0px #ffffff;
   outline: 0;
 }
+
+.title {
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bold;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  color: #666666;
+  text-shadow: 0px 1px 0px #ffffff;
+}

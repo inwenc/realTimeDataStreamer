@@ -1,11 +1,7 @@
 const express = require('express');
 
 const app = express();
-//const http = require('http').Server(app);
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+
 const io = require('socket.io')(3001);
 
 const needle = require('needle');
@@ -17,7 +13,7 @@ const streamURL ='https://api.twitter.com/2/tweets/sample/stream';
 
 io.on('connect', (socket) => {
 
-  console.log('a user connected')
+  console.log('a user is connected')
 
   const options = {
     timeout: 2000
@@ -29,24 +25,20 @@ io.on('connect', (socket) => {
     }
   }, options)
   stream.on('data', data => {
-   // try {
-      //incoming data is buffer
-    if(typeof data === 'object') {
-    //console.log('TYPEOF', typeof data)
-    const json = JSON.parse(data);
-     console.log('json', JSON.parse(data))
-      //res.json(json)
-      //sends tweets to client
 
+   if(data.length !== 0) {
+    //console.log('TYPEOF', typeof data)
+
+    const json = JSON.parse(data);
+     console.log('json', json)
+      //sends tweets to client
+      if (json.data.text) {
       socket.emit('streamer', json);
 
+      }
+    }
 
-    // } catch (e) {
-    //   // Keep alive signal received. Do nothing.
-    //   console.log('err in catch', e);
-    //
 
-}
   }).on('error', error => {
     if (error.code === 'ETIMEDOUT') {
       stream.emit('timeout');

@@ -9,18 +9,18 @@ export class WebSocketService {
   readonly url: string = 'ws://localhost:3001';
 
   constructor() {
-    this.socket = io(this.url, { withCredentials: true });
+    this.socket = io(this.url, { withCredentials: false });
   }
   socket: any;
   listen(eventName: string){
     return new Observable((subscriber) => {
       this.socket.on(eventName, (data) => {
         console.log('data', data)
-        subscriber.next(data)
+        subscriber.next(data);
       })
     })
   }
   emit(eventName: string, data: any) {
-    this.socket.emit(eventName, data)
+    this.socket.emit(eventName, data);
   }
 }
