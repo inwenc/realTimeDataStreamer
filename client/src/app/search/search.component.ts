@@ -25,14 +25,12 @@ export class SearchComponent implements OnInit {
   constructor(private apiService: ApiService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
-  console.log('ngOnInit')
 
    this.tweets$ = this.searchTerms.pipe(
       debounceTime(400),
       distinctUntilChanged(),
-      tap(_ => (this.loading = true)),
       switchMap((term: string) => this.apiService.searchTweets(term)),
-      tap(_ => (this.loading = false)),
+
 
     )
 
@@ -48,7 +46,7 @@ export class SearchComponent implements OnInit {
   }
 
   addToFavorite(id: string, text: string, time: string, idx: number) {
-    this.store.dispatch(new TwitterActions.AddTweet({time: time, id: id, text: text, idx:idx}))
+    this.store.dispatch(new TwitterActions.AddTweet({id: id, text: text, time: time,idx:idx}))
 
   }
 

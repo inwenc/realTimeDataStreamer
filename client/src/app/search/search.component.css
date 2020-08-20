@@ -1,0 +1,23 @@
+.listItem {
+  list-style: none;
+}
+
+#wrapper {
+  text-align: left;
+  color: black;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  margin: 0px;
+  width: 400px;
+  height: 1600px;
+  margin: 0;
+  background: rgb(154, 192, 154);
+  padding: 20px;
+  list-style: none;
+  border-radius: 25px;
+}
+.instruction {
+  color: white;
+  font-family: Arial;
+}

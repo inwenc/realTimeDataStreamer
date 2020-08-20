@@ -13,21 +13,6 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json());
 
-// function sanitizedData (data) {
-//   var arr = data.statuses;
-//   var newArr = [];
-//   for (var i = 0; i < arr.length; i++) {
-//     var obj = {
-//       time: arr[i].created_at,
-//       text: arr[i].text,
-//       id: arr[i].id
-//     }
-//     newArr.push(obj);
-
-//   }
-//   return newArr;
-// }
-
 app.post('/tweets', (req, res) => {
 
   const options = {
@@ -49,7 +34,7 @@ app.post('/tweets', (req, res) => {
       //const json = JSON.parse(data);
       console.log('data', data)
       var newData = sanitizeData(data);
-      res.end(JSON.stringify(newData))
+      res.end(JSON.stringify(newData));
 
     } catch (e) {
       // Keep alive signal received. Do nothing.
@@ -65,8 +50,7 @@ app.post('/tweets', (req, res) => {
 
 
 
-
 app.listen('3000', () => {
-  console.log('server up')
+  console.log('server up on port 3000')
 })
 

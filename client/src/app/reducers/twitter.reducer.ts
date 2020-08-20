@@ -13,6 +13,7 @@ const initialState: Tweet = {
 
 export function twitterReducer(state: Tweet[] = [], action: TwitterActions.Actions) {
   switch(action.type) {
+
     case TwitterActions.ADD_TWEET:
       return [...state, action.payload];
     case TwitterActions.REMOVE_TWEET:

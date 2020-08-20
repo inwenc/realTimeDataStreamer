@@ -24,7 +24,6 @@ export class FavoriteListComponent implements OnInit {
   }
   deleteTweet (idx: number) {
     this.store.dispatch(new TwitterActions.RemoveTweet(idx));
-    console.log('index', idx)
   }
 
 }

@@ -2,12 +2,13 @@
 <div>
 <form class="form-inline">
     <div class="form-group">
-        <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+        <input #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="hashtag search"/>
     </div>
   </form>
-  <div *ngIf="listOfTweets">
- <ul *ngFor="let tweet of listOfTweets" ng-init="counter = 0">
-   <li (click)="addToFavorite(tweet.time, tweet.id, tweet.text, counter)">{{tweet.id}}: <span>{{tweet.text}}</span> ({{tweet.time}})</li>
+  <div *ngIf="listOfTweets" id="wrapper">
+    <p class="instruction">Click on Tweet to Favorite</p>
+ <ul class="listItem" *ngFor="let tweet of listOfTweets" ng-init="counter = 0">
+   <li (click)="addToFavorite(tweet.time, tweet.id, tweet.text, counter)">&#8527;{{tweet.id}}: <span>{{tweet.text}}</span> ({{tweet.time}})</li>
 
  </ul>
   </div>
