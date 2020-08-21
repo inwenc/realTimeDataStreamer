@@ -1,7 +1,7 @@
 # Project: Twitter Data Streamer
 
 
-![Alt Text](https://giphy.com/gifs/VHq1dLCrhk2Futzo8U)
+![Alt Text](https://media.giphy.com/media/VHq1dLCrhk2Futzo8U/giphy.gif)
 
 ## Table of Contents
 1. [Overview](#Overview)
