@@ -1,5 +1,5 @@
 <div>
-  <span class="text">Total tweets: {{storage.length}}</span>
+  <p class="text">Total tweets: {{storage.length}}</p>
   <div *ngIf="storage" id="wrapper">
     <ul  *ngFor="let tweet of storage | slice:-10:-1">
       <li id="tweets">{{tweet.data.text}}</li>

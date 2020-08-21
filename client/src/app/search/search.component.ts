@@ -29,9 +29,7 @@ export class SearchComponent implements OnInit {
    this.tweets$ = this.searchTerms.pipe(
       debounceTime(400),
       distinctUntilChanged(),
-      switchMap((term: string) => this.apiService.searchTweets(term)),
-
-
+      switchMap((term: string) => this.apiService.searchTweets(term))
     )
 
   }
@@ -39,7 +37,6 @@ export class SearchComponent implements OnInit {
 
   search(term: string) {
    this.searchTerms.next(term);
-   console.log('termi', term)
    this.loading = true;
    this.apiService.searchTweets(term).subscribe((data)=> this.listOfTweets = data);
 

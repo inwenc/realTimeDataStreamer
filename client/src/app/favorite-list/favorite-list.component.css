@@ -1,5 +1,6 @@
 .listItem {
   list-style: none;
+  cursor: pointer;
 }
 
 #wrapper {
@@ -9,9 +10,10 @@
   height: 100vh;
   flex-direction: column;
   margin: 0px;
-  width: 400px;
+  width: 460px;
   height: 800px;
   margin: 0;
+  margin-top: 40px;
   background: rgb(154, 192, 154);
   padding: 20px;
   list-style: none;

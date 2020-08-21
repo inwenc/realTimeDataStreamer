@@ -1,11 +1,10 @@
 # Project: Twitter Data Streamer
 
 
-![Alt Text](https://media.giphy.com/media/MDlqmYpPXAInHyckGS/giphy.gif)
+![Alt Text](https://giphy.com/gifs/VHq1dLCrhk2Futzo8U)
 
 ## Table of Contents
 1. [Overview](#Overview)
-1. [Other Services](#Other-Services)
 1. [Usage](#Usage)
 1. [Tech Stack](#Tech-Stack)
 1. [Copyright and License](#Copyright-and-License)
@@ -53,6 +52,7 @@ Add to Favorite feature: Favorites tweets and adds tweets to the favorite list.
 ## Tech Stack
 
 - JavaScript
+- TypeScript
 - Angular v10
 - Node/Express
 - Socket.io

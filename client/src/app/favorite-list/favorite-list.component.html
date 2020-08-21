@@ -1,5 +1,5 @@
 <div *ngIf="favoriteTweets" id="wrapper">
-  <p class="instruction">Click on tweet to delete from list</p>
+  <p class="instruction">Click on Tweet to Remove from List</p>
   <ul *ngFor="let tweet of favoriteTweets | async; let i = index">
     <li class="listItem" (click)="deleteTweet(i)">
       {{tweet.id}}: <span>{{tweet.text}}</span> ({{tweet.time}})

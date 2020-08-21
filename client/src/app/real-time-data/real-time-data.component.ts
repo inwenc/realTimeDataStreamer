@@ -11,16 +11,14 @@ export class RealTimeDataComponent implements OnInit {
 
   title = 'client';
 
-  //$messages = [];
   public storage: Array<Object> = [];
-  //public tweet: any;
+
   constructor(private webSocketService: WebSocketService) {
 
   }
   ngOnInit() {
     this.webSocketService.listen('streamer').subscribe((data:any) => {
       this.storage.push(data);
-      console.log(this.storage);
     })
   }
 
