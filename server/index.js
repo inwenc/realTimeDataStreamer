@@ -5,7 +5,7 @@ const app = express();
 const io = require('socket.io')(3001);
 
 const needle = require('needle');
-const TWITTER_TOKEN = require('./config.js')
+const TWITTER_TOKEN = require('./config/config.js')
 const streamURL ='https://api.twitter.com/2/tweets/sample/stream';
 
 

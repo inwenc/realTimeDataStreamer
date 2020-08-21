@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 
 const needle = require('needle');
-const TWITTER_TOKEN = require('./config.js')
+const TWITTER_TOKEN = require('./config/config.js')
 const { sanitizeData } = require('./helperFunc.js')
 
 
