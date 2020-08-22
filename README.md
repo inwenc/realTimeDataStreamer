@@ -25,26 +25,26 @@ Add to Favorite feature: Favorites tweets and adds tweets to the favorite list.
 ## Usage
 
 ### npm install
-  ** From Root Directoy **
+  ** From Root Directoy **<br />
   Install the dependencies in a local node_modules folder
 
 ### npm install
-  ** From Client Directoy **
+  ** From Client Directoy **<br />
   Install the dependencies in a local node_modules folder
 
 
 ### ng serve
-  ** From Client Directoy **
+  ** From Client Directoy **<br />
   Builds the Angular app
   Open http://localhost:4200 to view it in the browser.
 
 ### npm run start
-  ** From Root Directoy **
+  ** From Root Directoy **<br />
   Runs the server that streams Twitter API streams.
 
 
 ### npm run server-start
-  ** From Root Directoy **
+  ** From Root Directoy **<br />
   Runs the RESTserver that streams Twitter API search.
 
 
