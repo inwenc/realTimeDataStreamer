@@ -10,8 +10,8 @@
 1. [Copyright and License](#Copyright-and-License)
 
 ## Overview
-Twitter Data Streamer streams Real Time Data from Twitter streams.
-Search Feature: to search tweets by key words.
+Twitter Data Streamer streams Real Time Data from Twitter streams.<br />
+Search Feature: to search tweets by key words.<br />
 Add to Favorite feature: Favorites tweets and adds tweets to the favorite list.
 
 ### My contributions:
