@@ -23,11 +23,11 @@ app.post("/tweets", (req, res) => {
     .on("data", (data) => {
       try {
         //incoming data is buffer
-
         const newData = sanitizeData(data);
-        res.end(JSON.stringify(newData));
+        res.json(newData);
       } catch (e) {
         // Keep alive signal received. Do nothing.
+        res.status(500).json({ error: "Error" });
         console.log(e);
       }
     })

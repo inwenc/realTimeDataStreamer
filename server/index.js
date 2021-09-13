@@ -2,7 +2,6 @@ var port = Number(process.env.port) || 1337;
 const io = require("socket.io")(port);
 
 const needle = require("needle");
-const TWITTER_TOKEN = process.env.JSON;
 const streamURL = "https://api.twitter.com/2/tweets/sample/stream";
 
 io.on("connect", (socket) => {
@@ -16,7 +15,7 @@ io.on("connect", (socket) => {
     streamURL,
     {
       headers: {
-        Authorization: `Bearer ${TWITTER_TOKEN}`,
+        Authorization: `Bearer ${process.env.TWITTER_TOKEN}`,
       },
     },
     options
