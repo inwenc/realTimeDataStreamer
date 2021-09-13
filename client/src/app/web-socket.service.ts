@@ -14,7 +14,7 @@ export class WebSocketService {
   socket: any;
   listen(eventName: string){
     return new Observable((subscriber) => {
-      this.socket.on(eventName, (data) => {
+      this.socket.on(eventName, (data: any) => {
         console.log('data', data)
         subscriber.next(data);
       })
